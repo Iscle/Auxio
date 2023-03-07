@@ -11,11 +11,6 @@ plugins {
 
 android {
     compileSdk 33
-    // NDK is not used in Auxio explicitly (used in the ffmpeg extension), but we need to specify
-    // it here so that binary stripping will work.
-    // TODO: Eventually you might just want to start vendoring the FFMpeg extension so the
-    //  NDK use is unified
-    ndkVersion = "23.2.8568313"
     namespace "org.oxycblt.auxio"
 
     defaultConfig {
@@ -117,9 +112,8 @@ dependencies {
 
     // --- THIRD PARTY ---
 
-    // Exoplayer (Vendored)
-    implementation project(":exoplayer-library-core")
-    implementation project(":exoplayer-extension-ffmpeg")
+    // Exoplayer
+    implementation 'com.google.android.exoplayer:exoplayer:2.18.4'
 
     // Image loading
     implementation 'io.coil-kt:coil-base:2.2.2'

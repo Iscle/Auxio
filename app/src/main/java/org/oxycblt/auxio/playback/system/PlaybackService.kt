@@ -17,6 +17,7 @@
  
 package org.oxycblt.auxio.playback.system
 
+// import com.google.android.exoplayer2.ext.ffmpeg.FfmpegAudioRenderer
 import android.app.Service
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -34,7 +35,6 @@ import com.google.android.exoplayer2.RenderersFactory
 import com.google.android.exoplayer2.audio.AudioAttributes
 import com.google.android.exoplayer2.audio.AudioCapabilities
 import com.google.android.exoplayer2.audio.MediaCodecAudioRenderer
-import com.google.android.exoplayer2.ext.ffmpeg.FfmpegAudioRenderer
 import com.google.android.exoplayer2.mediacodec.MediaCodecSelector
 import com.google.android.exoplayer2.source.MediaSource
 import dagger.hilt.android.AndroidEntryPoint
@@ -125,7 +125,7 @@ class PlaybackService :
                     audioListener,
                     AudioCapabilities.DEFAULT_AUDIO_CAPABILITIES,
                     replayGainProcessor),
-                FfmpegAudioRenderer(handler, audioListener, replayGainProcessor))
+            )
         }
 
         player =
